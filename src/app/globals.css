@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #eeedea;
+  --paper: #f7f6f3;
+  --ink: #221e18;
+  --muted: #6b6d70;
+  --accent: #d65f3c;
+  --accent-deep: #ab4c30;
+  --accent-tint: #fbeee9;
+  --teal: #1f6f63;
+  --border: #e6e4e0;
+  --disabled: #f0efeb;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-canvas: var(--canvas);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-tint: var(--accent-tint);
+  --color-teal: var(--teal);
+  --color-border: var(--border);
+  --color-disabled: var(--disabled);
+  --font-sans: "Satoshi", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--canvas);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: "Satoshi", system-ui, sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -420px 0;
+  }
+
+  100% {
+    background-position: 420px 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #eae9e5 25%,
+    #f4f3ef 37%,
+    #eae9e5 63%
+  );
+  background-size: 420px 100%;
+  animation: skeleton-shimmer 1.3s linear infinite;
+}
+
+@keyframes drawer-enter {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes calendar-menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.drawer-enter {
+  animation: drawer-enter 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.toast-enter {
+  animation: toast-enter 180ms ease-out both;
+}
+
+.calendar-menu-enter {
+  transform-origin: top right;
+  animation: calendar-menu-enter 160ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer,
+  .drawer-enter,
+  .toast-enter,
+  .calendar-menu-enter {
+    animation: none;
+  }
 }
