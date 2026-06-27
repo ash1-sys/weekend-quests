@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40">
+  <path
+    d="M0 16C0 7.16 7.16 0 16 0s16 7.16 16 16-7.16 16-16 16c-4.8 0-9.08-2.12-12-5.46L0 32V16Z"
+    fill="#d65f3c"
+  />
+  <text
+    x="16"
+    y="22"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="18"
+    font-weight="900"
+  >
+    W
+  </text>
+  <circle cx="16" cy="37" r="3" fill="#d65f3c" opacity=".45" />
+</svg>
